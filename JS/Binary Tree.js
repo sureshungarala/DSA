@@ -1,8 +1,7 @@
 console.clear();
-//console.log(window.performance.now());
+console.log(window.performance.now());
 function Node(data) {
     this.data = data;
-    this.count = 1;
     this.parent = null;
     this.leftRef = null;
     this.rightRef = null;
@@ -13,15 +12,6 @@ Node.prototype.getData = function () {
 Node.prototype.setData = function (data) {
     this.data = data;
     return this;
-}
-Node.prototype.getCount = function () {
-    return this.count;
-}
-Node.prototype.increment = function () {
-    this.count++;
-}
-Node.prototype.decrement = function () {
-    this.count--;
 }
 Node.prototype.setParentNode = function (node) {
     this.parent = node;
@@ -56,10 +46,7 @@ Tree.prototype.insertNode = function (data) {
         return;
     }
     while (null != node) {
-        if (data == node.getData()) {
-            node.increment();
-            return;
-        } else if (data > node.getData()) {
+        if (data > node.getData()) {
             if (null == node.getRightNode()) {
                 break;
             }
@@ -86,7 +73,8 @@ Tree.prototype.findNode = function (data) {
     while (null != node) {
         if (data == node.getData()) {
             break;
-        } else if (data > node.getData()) {
+        }
+        else if (data > node.getData()) {
             node = node.getRightNode();
         } else if (data < node.getData()) {
             node = node.getLeftNode();
@@ -106,13 +94,9 @@ Tree.prototype.getExtrmRightNode = function (node) {
     }
     return node;
 }
-Tree.prototype.deleteNode = function (data, deleteAllNodes) {
+Tree.prototype.deleteNode = function (data) {
     var node = this.findNode(data);
     if (null != node) {
-        if (!deleteAllNodes && node.getCount() > 1) {
-            node.decrement();
-            return;
-        }
         var parent = node.getParentNode();
         if (null == node.getLeftNode() && null == node.getRightNode()) {
             if (null != parent) {
@@ -191,68 +175,23 @@ Tree.prototype.deleteNode = function (data, deleteAllNodes) {
         }
     }
 }
-Tree.prototype.getChildCount = function (node, count) {
-    if (null != node) {
-        var left = node.getLeftNode(), right = node.getRightNode();
-        count++;
-
-        if (null != left) {
-            count = this.getChildCount(left, count);
-        }
-        if (null != right) {
-            count = this.getChildCount(right, count);
-        }
-    }
-    return count;
-}
 Tree.prototype.inorder = function (node, arr) {
     if (null != node) {
         this.inorder(node.getLeftNode(), arr);
-        var i = node.getCount();
-        while (i > 0) {
-            arr.push(node.getData());
-            i--;
-        }
+        arr.push(node.getData());
         this.inorder(node.getRightNode(), arr);
     }
 }
 Tree.prototype.printSorted = function () {
-    var root = this.root, arr = [];
+    var root = this.root, arr = [], extrmLeftNode = this.getExtrmLeftNode(root);
     this.inorder(root, arr);
     return arr;
 }
-Tree.prototype.balance = function (node) {
-    var leftCount = this.getChildCount(node.getLeftNode(), 0), rightCount = this.getChildCount(node.getRightNode(), 0);
-    if (Math.abs(leftCount - rightCount) > 1) {
-        var parent = node.getParentNode(), left = node.getLeftNode(), right = node.getRightNode();
-        if (leftCount > rightCount) { //right rotation
-            left.setParentNode(parent);
-            node.setParentNode(left);
-            node.setLeftNode(left.getRightNode());
-            left.setRightNode(node);
-            if (null == parent) {
-                this.root = left;
-            }
-            this.rotate(left);
-        } else {                       //left rotation
-            right.setParentNode(parent);
-            node.setParentNode(right);
-            node.setRightNode(right.getLeftNode());
-            right.setLeftNode(node);
-            if (null == parent) {
-                this.root = right;
-            }
-            this.rotate(right);
-        }
-    } else {
-        this.rotate(node.getLeftNode());
-        this.rotate(node.getRightNode());
-    }
-}
+
 
 //console.log('node b1');
 //console.log(node);
-//console.log(window.performance.now());
+console.log(window.performance.now());
 var tree = new Tree(25);
 tree.insertNode(30);
 tree.insertNode(20);
@@ -266,18 +205,14 @@ tree.insertNode(7);
 tree.insertNode(34);
 tree.insertNode(33);
 tree.insertNode(45);
-tree.insertNode(25);
-//console.log(window.performance.now());
+console.log(window.performance.now());
 console.log(tree);
-//console.log(window.performance.now());
+console.log(window.performance.now());
 console.log(tree.findNode(35));
-//console.log(window.performance.now());
+console.log(window.performance.now());
 tree.deleteNode(35);
-tree.deleteNode(25, true);
-console.log(tree.getRootNode());
-//console.log(window.performance.now());
+console.log(window.performance.now());
 console.log(tree);
-//console.log(window.performance.now());
+console.log(window.performance.now());
 console.log(tree.printSorted());
 console.log(tree.findNode(123));
-console.log('total node count ' + tree.getChildCount(tree.getRootNode(), 0));
