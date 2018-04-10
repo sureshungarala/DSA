@@ -1,5 +1,5 @@
 console.clear();
-console.log(window.performance.now());
+//console.log(window.performance.now());
 function Stack() {
     this.data = [];
 }
@@ -84,7 +84,7 @@ function struggle() {
     }
 
 }
-console.log(window.performance.now());
+//console.log(window.performance.now());
 struggle();
-console.log(window.performance.now());
+//console.log(window.performance.now());
 //t3.toString();
