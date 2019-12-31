@@ -11,9 +11,10 @@ for (var i = 1; i < arr.length; i++) {
     j--;
   }
   arr[j + 1] = currVal;
+  console.log(arr);
 }
 //console.log(performance.now()-start);
-console.log(arr);
+//console.log(arr);
 
 /*
 time complexity: worst case

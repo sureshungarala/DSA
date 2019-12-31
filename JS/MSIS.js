@@ -1,4 +1,4 @@
-console.clear();
+console.clear();    //Maximum sum in Increasing sequence
 var sure = [1, 101, 2, 3, 100, 4, 5, 130], mem = [], max = 0;
 for (var i = 0; i < sure.length; i++) {
     mem[i] = sure[i];
@@ -11,6 +11,7 @@ for (var i = 1; i < sure.length; i++) {
                 max = mem[i];
             }
         }
+        console.log(mem);
     }
 }
 console.log(max);

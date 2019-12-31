@@ -1,5 +1,5 @@
 console.clear();
-console.log(window.performance.now());
+//console.log(window.performance.now());
 function Node(data, nextRef, prevRef) {
   this.data = data;
   this.nextRef = nextRef;
@@ -167,15 +167,15 @@ linkedList.insertAtTail(9);
    }
  } took 5.56 hrs to sort 1 million nodes
  */
-console.log(window.performance.now());
+//console.log(window.performance.now());
 //toString.call(linkedList);
-console.log(window.performance.now());
-console.log(linkedList);
-console.log('before sort ' + window.performance.now());
+// console.log(window.performance.now());
+// console.log(linkedList);
+//console.log('before sort ' + window.performance.now());
 var sortedList = sort(linkedList);
-console.log('after sort ' + window.performance.now());
+//console.log('after sort ' + window.performance.now());
 //toString.call(sortedList);
-console.log(window.performance.now());
+// console.log(window.performance.now());
 console.log(sortedList);
-console.log(window.performance.now());
+//console.log(window.performance.now());
 

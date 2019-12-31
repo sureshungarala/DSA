@@ -12,7 +12,7 @@ console.clear();
 //var sure = new Box(2, 4), b1 = new Box(1, 2), b2 = new Box(2, 1);
 var max = 0, mem = [0,1,2];
 
-function tile(b) {
+function tile(b) {  //fibanocci
     var b1=0,b2=0
     if(b==1 ||  b==0 || b==2){
         return mem[b];
@@ -33,6 +33,6 @@ function tile(b) {
     return b1+b2;
 }
 var st = new Date().getTime();
-tile(5100, 0);
+tile(5100);
 console.log(((new Date().getTime() - st) / 1000).toFixed(5));
 console.log(mem[mem.length-1]);

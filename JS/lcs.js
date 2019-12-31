@@ -1,7 +1,7 @@
-console.clear();
+console.clear();    //largest common string
 console.log('-----------------------------------');
-var s1 = 'hjklasdfyuikjegrdfbjnuoyiqwop onfunobnuweniusdnpciqwueiwaefnshi ihiwefiksdfhyiweji', s2 = 'rusyuiwekjdshcgreelshiuowiecniuynxqenuynqwkrmnib wqerybuiweynruqwniuyo', table = [], mem = [];
-//var s1 = 'usuresh', s2 = 'rusreeslh', table = [], mem = [];
+//var s1 = 'hjklasdfyuikjegrdfbjnuoyiqwop onfunobnuweniusdnpciqwueiwaefnshi ihiwefiksdfhyiweji', s2 = 'rusyuiwekjdshcgreelshiuowiecniuynxqenuynqwkrmnib wqerybuiweynruqwniuyo', table = [], mem = [];
+var s1 = 'usuresh', s2 = 'rusreeslh', table = [], mem = [];
 function maxi(r, c) {
     var temp = 0;
     for (var i = 0; i < r; i++) {

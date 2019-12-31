@@ -1,11 +1,12 @@
 console.clear();
-var sure = [5, 8, -3, 7, 0, 4, 11];
+var sure = [5, 8, -3, 7, 0, 4, 2];
 
-function partition(arr, start, end) {
+function partition(arr, start, end) { //partition at a point such that, all elems on left would be smaller than it and all elems on right would be larger
   var i = start, temp;
   for (var j = start; j < end; j++) {
     if (arr[j] < arr[end]) {
-      temp = arr[i]; arr[i] = arr[j];
+      temp = arr[i];
+      arr[i] = arr[j];
       arr[j] = temp;
       i++;
     }
@@ -13,6 +14,7 @@ function partition(arr, start, end) {
   temp = arr[i];
   arr[i] = arr[end];
   arr[end] = temp;
+  console.log(arr, i);
   return i;
 }
 function sort(arr, start, end) {

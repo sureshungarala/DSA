@@ -1,4 +1,4 @@
-console.clear();
+console.clear();    //longest possible sequence
 var sure = 'abracadabra', mem = [];
 
 function count(n) {
@@ -11,7 +11,7 @@ function count(n) {
     for (var i = 1; i < n; i++) {
         var k = 0;
         for (var j = i; j < n; j++) {
-            console.log(k, j);
+            //console.log(k, j);
             if (sure.charAt(k) == sure.charAt(j)) {
                 mem[k][j] = 2 + mem[k + 1][j - 1];
             } else {

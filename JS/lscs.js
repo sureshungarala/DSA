@@ -1,4 +1,4 @@
-console.clear();
+console.clear();    //largest sequence with longest sequence
 var sure = [-2, -3, 4, -1, -2, 1, 5, -3], op = [];
 for (var i = 0; i < sure.length; i++) {
     if (!op[i]) {

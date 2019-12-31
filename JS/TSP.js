@@ -1,4 +1,4 @@
-//travelling salesman problem
+//travelling salesman problem   refer geeksForGeeks for full prblm statement
 console.clear();
 var sure = [[0, 10, 15, 20],
 [10, 0, 35, 25],
@@ -15,7 +15,7 @@ function find(arr, k, m, tmp) {
     var min = Number.MAX_SAFE_INTEGER;
     if (arr.length > 1) {
         for (var i = 0; i < arr.length; i++) {
-            var t = JSON.parse(JSON.stringify(tmp));
+            var t = JSON.parse(JSON.stringify(tmp));    //with out reference
             var temp = sure[k][arr[i]] + find(arr, arr[i], m, t);
             if (temp < min) {
                 min = temp;

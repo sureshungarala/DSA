@@ -1,3 +1,4 @@
+console.clear();
 function P_Queue() {
     this.data = [];
 }
