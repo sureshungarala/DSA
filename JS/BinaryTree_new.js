@@ -1,5 +1,5 @@
+// @ts-check
 const Queue = require('./Queue.js');
-
 class BTNode {
   constructor(data) {
     this.value = data;
@@ -28,6 +28,7 @@ class BTNode {
     let node = this;
     while (node.left) {
       parent = node;
+      // @ts-ignore
       node = node.left;
     }
     return [node, parent];
@@ -38,6 +39,7 @@ class BTNode {
     let node = this;
     while (node.right) {
       parent = node;
+      // @ts-ignore
       node = node.right;
     }
     return [node, parent];
